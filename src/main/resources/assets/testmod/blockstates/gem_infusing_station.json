@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "testmod:block/gem_infusing_station"
+    }
+  }
+}
