@@ -3,7 +3,7 @@ package com.mincomk.testmod;
 import com.mincomk.testmod.common.block.ModBlocks;
 import com.mincomk.testmod.common.block.entity.ModBlockEntities;
 import com.mincomk.testmod.common.item.ModItems;
-import com.mincomk.testmod.common.screen.GemInfusingStationScreen;
+import com.mincomk.testmod.client.screen.GemInfusingStationScreen;
 import com.mincomk.testmod.common.screen.ModMenuTypes;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;

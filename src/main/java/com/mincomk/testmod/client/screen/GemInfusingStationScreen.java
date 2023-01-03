@@ -1,6 +1,7 @@
-package com.mincomk.testmod.common.screen;
+package com.mincomk.testmod.client.screen;
 
 import com.mincomk.testmod.TestMod;
+import com.mincomk.testmod.common.screen.GemInfusingStationMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -34,10 +35,7 @@ public class GemInfusingStationScreen extends AbstractContainerScreen<GemInfusin
 
     private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
         if (menu.isCrafting()) {
-            this.minecraft.player.sendSystemMessage(Component.literal("CR"));
-            blit(pPoseStack, x + 79, y + 35, 176, 14, 24, 17);
-        } else {
-            this.minecraft.player.sendSystemMessage(Component.literal(((Integer) menu.data.get(0)).toString()));
+            blit(pPoseStack, x + 79, y + 35, 176, 14, menu.data.get(0), 17);
         }
     }
 

@@ -17,14 +17,14 @@ import org.jetbrains.annotations.Nullable;
 public class GemInfusingStationMenu extends AbstractContainerMenu {
     public final GemInfusingStationBlockEntity blockEntity;
     private final Level level;
-    final ContainerData data;
+    public final ContainerData data;
 
     public GemInfusingStationMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
         this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
     public GemInfusingStationMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.GEM_INFUSING_STATION_MENU.get(), id);
-        checkContainerSize(inv, 3);
+        checkContainerSize(inv, 2);
         blockEntity = (GemInfusingStationBlockEntity) entity;
         this.level = inv.player.level;
         this.data = data;
@@ -35,16 +35,12 @@ public class GemInfusingStationMenu extends AbstractContainerMenu {
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 48, 34));
             this.addSlot(new SlotItemHandler(handler, 1, 116, 34));
-            this.addSlot(new SlotItemHandler(handler, 2, 86, 60));
         });
 
         addDataSlots(data);
     }
 
     public boolean isCrafting() {
-        level.players().forEach(p -> {
-            p.sendSystemMessage(Component.literal("HELL"+((Integer) 1).toString()));
-        });
         return data.get(0) > 0;
     }
 
@@ -64,7 +60,7 @@ public class GemInfusingStationMenu extends AbstractContainerMenu {
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 3; // must be a number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2; // must be a number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

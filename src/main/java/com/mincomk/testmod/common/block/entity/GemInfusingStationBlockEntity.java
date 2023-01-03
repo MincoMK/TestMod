@@ -64,7 +64,7 @@ public class GemInfusingStationBlockEntity extends BlockEntity implements MenuPr
 
             @Override
             public int getCount() {
-                return 0;
+                return 2;
             }
         };
     }
